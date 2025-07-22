@@ -1,7 +1,7 @@
 streamlit
 streamlit_option_menu
 gunicorn
-scikit-learn
+scikit-learn==1.2.2
 plotly
 statsmodels
 pandas
