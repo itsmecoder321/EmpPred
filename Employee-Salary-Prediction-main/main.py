@@ -34,16 +34,41 @@ def run():
         return df
 
     # Function To Load Our Dataset
+
+    GDRIVE_FILES = {
+    "Salary Data.csv": "https://drive.google.com/file/d/17JG6XgR6fSknQH-5jAJQj3_HGClyKJUi/view?usp=sharing",
+    "random_forest_regressor_salary_predictor_v1.pkl": "https://drive.google.com/file/d/1Ep5Qw2bzsDdEmhGC6a8AyT9wH1wbdkXx/view?usp=sharing"
+}
+
+# ---------- Download if not exists ----------
+    def download_if_missing(filename, file_id):
+        if not os.path.exists(filename):
+            print(f"{filename} not found. Downloading from Google Drive...")
+            gdown.download(f"https://drive.google.com/uc?id={file_id}", filename, quiet=False)
+        else:
+            print(f"{filename} already exists. Skipping download.")
+
     @st.cache_data
+    # def load_linear_regression_model(model_path):
+    #     return pd.read_pickle(model_path)
+
+    # df = load_data(r"Salary Data.csv")
+
+    # model = load_linear_regression_model(
+    #     r"random_forest_regressor_salary_predictor_v1.pkl")
+    
+    # print(type(model))
+
     def load_linear_regression_model(model_path):
         return pd.read_pickle(model_path)
 
-    df = load_data(r"Salary Data.csv")
+       
+    for filename, file_id in GDRIVE_FILES.items():
+        download_if_missing(filename, file_id)
 
-    model = load_linear_regression_model(
-        r"random_forest_regressor_salary_predictor_v1.pkl")
-    
-    print(type(model))
+    # Step 2: Load files
+    df = load_data("Salary Data.csv")
+    model = load_linear_regression_model("random_forest_regressor_salary_predictor_v1.pkl")
 
 
     # Function To Valid Input Data
