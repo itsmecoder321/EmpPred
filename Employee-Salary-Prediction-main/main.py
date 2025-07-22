@@ -37,8 +37,8 @@ def run():
     # Function To Load Our Dataset
 
     GDRIVE_FILES = {
-    "Salary Data.csv": "https://drive.google.com/file/d/17JG6XgR6fSknQH-5jAJQj3_HGClyKJUi/view?usp=sharing",
-    "random_forest_regressor_salary_predictor_v1.pkl": "https://drive.google.com/file/d/1Ep5Qw2bzsDdEmhGC6a8AyT9wH1wbdkXx/view?usp=sharing"
+    "Salary Data.csv": "17JG6XgR6fSknQH-5jAJQj3_HGClyKJUi",
+    "random_forest_regressor_salary_predictor_v1.pkl": "1Ep5Qw2bzsDdEmhGC6a8AyT9wH1wbdkXx"
 }
 
 # ---------- Download if not exists ----------
