@@ -7,5 +7,6 @@ statsmodels
 pandas
 numpy
 os
+gdown
 
 
